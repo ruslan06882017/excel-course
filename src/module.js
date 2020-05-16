@@ -1,7 +1,7 @@
 console.log('Working module!!');
 
 async function rus(){
-  await Promise.resolve();
+  return await Promise.resolve('async working');
 }
 
-rus();
+rus().then(console.log());
