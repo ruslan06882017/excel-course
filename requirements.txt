@@ -1,0 +1,8 @@
+- Webpack
+- Babel
+- Eslint
+- Scss
+- Modes
+  - Dev
+  - Prod
+- Git
