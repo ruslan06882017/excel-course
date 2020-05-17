@@ -6,7 +6,10 @@
     "node": true
   },
   "rules": {
-    
+    "semi": "off",
+    "arrow-parens": "off",
+    "comma-dangle": "off",
+    "linebreak-style": ["error", "windows"]
   },
   "extends": ["eslint:recommended", "google"]
 }
