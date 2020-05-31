@@ -12,17 +12,21 @@ export class Excel {
     this.components = this.components.map(Component => {
       const $el = $.create('div', Component.className);
       const component = new Component($el);
-     // debugger
+      // DEBUG
+      if (component.name){
+        // window['c' + ]
+      }
       $el.html(component.toHTML());
-      // $root.insertAdjacentHTML('beforeend', component.toHTML());
       $root.append($el);
       return component
     });
+
     return $root;
   }
 
   render(){
-    this.$el.append(this.getRoot());
-    console.log(this.components);
+    this.$el.append(this.getRoot())
+    //console.log(this.components)
+    this.components.forEach(component => component.init())
   }
 }

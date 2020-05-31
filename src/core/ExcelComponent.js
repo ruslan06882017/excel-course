@@ -1,9 +1,10 @@
-import {DomListener} from './DomListener'
+import { DomListener } from './DomListener'
 
 export class ExcelComponent extends DomListener {
 
     constructor($root, options = {}){
-        super($root, options.listeners);
+        super($root, options.listeners)
+        this.name = options.name
     }
 	// Возращает шаблон компонента
     toHTML(){
@@ -12,5 +13,9 @@ export class ExcelComponent extends DomListener {
 
     init(){
         this.initDOMListeners()
+    }
+
+    destroy(){
+        this.removeDOMListeners()
     }
 }
