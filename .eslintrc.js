@@ -14,6 +14,7 @@ module.exports = {
     },
     "rules": {
         "linebreak-style": ["error", "windows"],
+        "object-curly-spacing": [2, "always"],
         "semi": off,
         "arrow-parens": off,
         "comma-dangle": off
