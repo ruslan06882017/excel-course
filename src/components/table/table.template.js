@@ -9,10 +9,9 @@ function toCell(){
 }
 
 function toColumn(col){
-  return `
-    <div class="column">
+  return `<div class="column" data-type="resizable">
       ${col}
-      <div class="col-resize"></div>
+      <div class="col-resize" data-resize="col"></div>
     </div>`
 }
 
@@ -20,7 +19,7 @@ function createRow(index, content){
   const resize = index ? `<div class='row-resize'> </div>` : ``
   return `
     <div class="row">
-      <div class="row-info">      
+      <div class="row-info">  
         ${index ? index : ''}
         ${resize}
        </div>
