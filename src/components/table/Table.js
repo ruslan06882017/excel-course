@@ -11,24 +11,35 @@ export class Table extends ExcelComponent {
   }
 
   toHTML(){
-    return createTable(10);
+    return createTable(50);
   }
 
   onMousedown(event){
+
+ 
     if (event.target.dataset.resize){
+      //console.log('clicked on column');
       const $resizer = $(event.target)
       // Bad option 1
       // Bad option 2
       const $parent = $resizer.closest('[data-type="resizable"]')
-      // console.log('Clicked' + $parent);
-      const coords = $parent.getCoords();
-
+      const coords = $parent.getCoords()
+      const cells = this.$root.findAll(`[data-col="${$parent.data.col}"]`)
+      const type = $resizer.data.resize
+      // console.log(type);
       document.onmousemove = e => {
-        const delta = e.pageX - coords.right
-        const value = coords.width + delta
-        // console.log('clicked and moving ' + coords.right);
-        $parent.$el.style.width = value + 'px'
-
+        if (type == 'col'){
+          const delta = e.pageX - coords.right
+          const value = coords.width + delta
+          $parent.css({width: value + 'px'});
+          // $parent.$el.style.width = value + 'px'
+          cells.forEach(el => el.style.width = value + 'px')
+        } else {
+          const delta = e.pageY - coords.bottom
+          const value = coords.height + delta
+          $parent.css({height: value + 'px'});
+          //cells.forEach(el => el.style.width = value + 'px')
+        }
       }
 
       document.onmouseup = () => {
@@ -40,10 +51,7 @@ export class Table extends ExcelComponent {
   onClick(){
 
   }
-/* 
-  onMousedown(){
 
-  } */
 
   onMousemove(){
     //console.log(`I'm nmoving`);
