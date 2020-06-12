@@ -41,7 +41,6 @@ export function createTable(rowCount = 15){
         .map(toColumn)
         .join('');
 
-  // console.log(cols);   
   rows.push(createRow(null, cols))
 
   for (let i = 0; i < rowCount; i ++){
