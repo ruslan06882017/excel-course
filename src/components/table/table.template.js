@@ -4,8 +4,7 @@ const CODES = {
 }
 function toCell(_, col){
   return `
-    <div class="cell" contenteditable data-col="${col}"></div>
-  `
+    <div class="cell" contenteditable data-col="${col}"></div>`
 }
 
 function toColumn(col, index){
