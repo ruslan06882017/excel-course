@@ -29,7 +29,9 @@ export class Table extends ExcelComponent {
   onMousemove(){
 
   }
+
   onMouseup(){
 
   }
+  
 }
