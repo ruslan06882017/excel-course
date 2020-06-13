@@ -58,7 +58,6 @@
     white-space: nowrap;
     outline: none;
 
-
     &.selected {
       border: none;
       outline: 2px solid $primary-color;
@@ -72,14 +71,15 @@
     right: 0;
     opacity: 0;
     background: $primary-color;
+    z-index: 1000;
     &:hover {
-      opacity: 1;
+      opacity: 1 !important;
     }
   }
 
   .col-resize {
     top: 0;
-    width: 4px;    
+    width: 4px;
     &:hover {
       cursor: col-resize;
     }
@@ -92,6 +92,4 @@
       cursor: row-resize;
     }
   }
-
-
 }
