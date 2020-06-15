@@ -8,6 +8,7 @@ export class DomListener {
     this.$root = $root
     this.listeners = listeners 
   }
+  
 
   initDOMListeners() {
     this.listeners.forEach(listener => {
