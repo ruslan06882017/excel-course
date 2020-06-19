@@ -57,6 +57,11 @@ class Dom {
     })   
   }
 
+  focus(){
+    this.$el.focus()
+    return this
+  }
+
   id(parse){
     if (parse){
       const parsed = this.id().split(':')
