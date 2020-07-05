@@ -10,7 +10,7 @@ export class Table extends ExcelComponent {
   static className = 'excel__table'
   constructor($root, options){
     super($root, {
-      listeners: ['click', 'mousedown', 'mousemove', 'mouseup', 'keydown'],
+      listeners: ['click', 'mousedown', 'mousemove', 'mouseup', 'keydown', 'input'],
       ...options
     });
   }
@@ -25,12 +25,19 @@ export class Table extends ExcelComponent {
 
   init(){
     super.init()
-    const $cell = this.$root.find('[data-id="0:0"]')
-    this.selection.select($cell)
-    
+    this.selectCell(this.$root.find('[data-id="0:0"]'))    
     this.$on('formula:input', text => {
       this.selection.current.text(text)
     })
+
+    this.$on('formula:done', () => {
+      this.selection.current.focus();
+    })
+  }
+
+  selectCell($cell){
+    this.selection.select($cell)
+    this.$emit('table:select', $cell)
   }
 
   onMousedown(event){
@@ -67,10 +74,14 @@ export class Table extends ExcelComponent {
     if (keys.includes(key) && (!event.shiftKey)){
       event.preventDefault()
       const id = this.selection.current.id(true)
-
       const $next = this.$root.find(nextSelector(key, id))
       this.selection.select($next)
+      this.$emit('table:select', $next)
     }
+  }
+
+  onInput(event){
+    this.$emit('table:input', $(event.target))
   }
 
   onClick(event){
