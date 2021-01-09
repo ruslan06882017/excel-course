@@ -14,8 +14,6 @@ class Dom {
   }
 
   text(text){
-    // console.log('EL = ' + this.$el)
-
     if (typeof text === 'string'){
       this.$el.textContent = text
       return this
