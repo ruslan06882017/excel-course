@@ -14,6 +14,7 @@ store.subscribe(state => {
   console.log(`App State`, state)
   storage('excel-state', state)
 })
+// debugger
 
 const excel = new Excel('#app', {
   components: [Header, Toolbar, Formula, Table],

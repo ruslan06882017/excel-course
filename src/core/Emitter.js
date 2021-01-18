@@ -32,6 +32,6 @@ export class Emitter {
 
 }
 
-const emitter = new Emitter()
+/* const emitter = new Emitter()
 emitter.subscribe('ruslan', data => console.log('Sub', data))
-emitter.emit('ruslan', 25)
+emitter.emit('ruslan', 25) */

@@ -11,6 +11,7 @@ const DEFAULT_WIDTH = 120
 function toCell(state, row){
   return function(_, col){
     const width = getWidth(state.colState, col)
+
     return `
       <div
         class="cell"
@@ -53,11 +54,12 @@ function toChar(_, index){
 }
 
 function getWidth(state, index){
-  console.log(`state`, state, `index`, index)
   return (state[index] || DEFAULT_WIDTH) + 'px'
 }
 
 function withWidthFrom(state){
+  // console.log(`state`, state)
+
   return function(col, index){
     return {
       col, index, width: getWidth(state.colState, index)
